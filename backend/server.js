@@ -8,18 +8,14 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 
 //.Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
-    origin: [
-      "https://pill-time-app.onrender.com",
-      "https://www.pill-time.radu-rusu.com/",
-      "https://pill-time.radu-rusu.com/",
-      "*",
-    ],
+    origin: "*",
   })
 );
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 app.use("/api", pillRoutes);
 
 mongoose
