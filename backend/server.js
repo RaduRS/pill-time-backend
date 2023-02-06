@@ -12,7 +12,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
-    origin: "*",
+    origin: [
+      "https://pill-time-app.onrender.com",
+      "https://www.pill-time.radu-rusu.com/",
+      "https://pill-time.radu-rusu.com/",
+      "*",
+    ],
   })
 );
 app.use("/api", pillRoutes);
